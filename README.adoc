@@ -1,0 +1,18 @@
+= Galimatias Library
+
+
+== Compatibility
+
+[width="50%",options="header"]
+|===
+| Version | Min XP version
+|1.0.0
+|7.0.x
+|===
+
+
+== Build
+
+```bash
+$ enonic project deploy
+```
