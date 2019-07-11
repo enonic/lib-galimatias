@@ -22,6 +22,8 @@ export class URL {
 
   getHost = () => this._javaObj.host().toString()
 
+  getScheme = () => this._javaObj.scheme().toString()
+
   normalize = (input) => BEAN.normalize(this._javaObj).toString()
 
   resolve = (path) => this._javaObj.resolve(path).toString()
@@ -37,6 +39,11 @@ export class URL {
 
   setHost(host = '') {
     this._javaObj = this._javaObj.withHost(host);
+    return this; // Chainable
+  }
+
+  setScheme(scheme = '') {
+    this._javaObj = this._javaObj.withScheme(scheme);
     return this; // Chainable
   }
 

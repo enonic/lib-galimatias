@@ -151,3 +151,22 @@ exports.testFromString = function() {
     new URL('https://user:pasw@www.example.com:8080/path/file.extention?param1=value1&param2=value2#fragment').fromString('ftp://ftp.example.com').toString()
   );
 };
+
+exports.testGetScheme = function() {
+  assertEquals(
+    'https',
+    new URL('https://www.example.com').getScheme()
+  );
+};
+
+exports.testSetScheme = function() {
+  // java.lang.RuntimeException: io.mola.galimatias.GalimatiasParseException: empty scheme
+  assertEquals(
+    'a://www.example.com/',
+    new URL('https://www.example.com').setScheme('a').normalize()
+  );
+  assertEquals(
+    'a',
+    new URL('https://www.example.com').setScheme('a').getScheme()
+  );
+};
