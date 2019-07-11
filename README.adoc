@@ -1,5 +1,40 @@
 = Galimatias Library
 
+== build.gradle
+
+```groovy
+repositories {
+  xp.enonicRepo()
+}
+
+dependencies {
+  include 'com.enonic.lib:lib-galimatias:1.0.0-SNAPSHOT'
+}
+```
+
+== Javascript
+
+```javascript
+var libGalimatias = require('/lib/galimatias');
+
+// Functional
+libGalimatias.parse('https://www.example.com');
+libGalimatias.normalize('https://www.example.com');
+libGalimatias.resolve('https://www.example.com', '/path');
+
+// Object oriented
+var URL = require('/lib/galimatias').URL;
+
+// Static
+URL.parse('https://www.example.com');
+URL.normalize('https://www.example.com');
+URL.resolve('https://www.example.com', '/path');
+
+// Instance
+var url = new URL('https://www.example.com');
+url.normalize();
+url.resolve('/path');
+```
 
 == Compatibility
 
@@ -9,6 +44,22 @@
 |1.0.0
 |7.0.x
 |===
+
+== Changelog
+
+=== 1.0.0-SNAPSHOT
+
+* Added URL class
+* Added static parse
+* Exported functional parse
+
+* Added static normalize
+* Exported functional normalize
+* Added normalize method
+
+* Added static resolve
+* Exported functional resolve
+* Added resolve method
 
 
 == Build
