@@ -105,7 +105,7 @@ exports.testGetFragment = function() {
     'fragment',
     new URL('https://www.example.com#fragment').getFragment()
   );
-}
+};
 
 exports.testSetFragment = function() {
   assertEquals(
@@ -124,14 +124,14 @@ exports.testSetFragment = function() {
     'changed',
     new URL('https://www.example.com#fragment').setFragment('changed').getFragment() // Testing chain too.
   );
-}
+};
 
 exports.testGetHost = function() {
   assertEquals(
     'www.example.com',
     new URL('https://www.example.com').getHost()
   );
-}
+};
 
 exports.testSetHost = function() {
   // java.lang.RuntimeException: io.mola.galimatias.GalimatiasParseException: empty host
@@ -143,4 +143,11 @@ exports.testSetHost = function() {
     'a',
     new URL('https://www.example.com').setHost('a').getHost()
   );
-}
+};
+
+exports.testFromString = function() {
+  assertEquals(
+    'ftp://ftp.example.com/',
+    new URL('https://user:pasw@www.example.com:8080/path/file.extention?param1=value1&param2=value2#fragment').fromString('ftp://ftp.example.com').toString()
+  );
+};

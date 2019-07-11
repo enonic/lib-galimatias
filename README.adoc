@@ -32,12 +32,14 @@ URL.resolve('https://www.example.com', '/path'); // returns string
 
 // Instance
 var url = new URL('https://www.example.com#fragment'); // returns Object
+url.toString(); // returns string
 url.normalize(); // returns string
 url.resolve('/path'); // returns string
 url.getFragment(); // returns string
 url.setFragment('').getFragment(); // setFragment is chainable
 url.getHost(); // returns string
 url.setHost('www.iana.org').getHost(); // setHost is chainable
+url.fromString('ftp://ftp.example.com').toString(); // fromString is chainable
 ```
 
 == Compatibility
@@ -70,6 +72,8 @@ url.setHost('www.iana.org').getHost(); // setHost is chainable
 
 * Added getHost method
 * Added setHost method
+
+* Added fromString method
 
 == Build
 

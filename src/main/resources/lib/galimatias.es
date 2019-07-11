@@ -12,6 +12,12 @@ export class URL {
     this._javaObj = BEAN.parse(input);
   }
 
+  // Makes it possible to reuse a constant instance reference
+  fromString(input) {
+    this._javaObj = BEAN.parse(input);
+    return this; // Chainable
+  }
+
   getFragment = () => this._javaObj.fragment() || ''
 
   getHost = () => this._javaObj.host().toString()
