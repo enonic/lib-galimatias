@@ -125,3 +125,22 @@ exports.testSetFragment = function() {
     new URL('https://www.example.com#fragment').setFragment('changed').getFragment() // Testing chain too.
   );
 }
+
+exports.testGetHost = function() {
+  assertEquals(
+    'www.example.com',
+    new URL('https://www.example.com').getHost()
+  );
+}
+
+exports.testSetHost = function() {
+  // java.lang.RuntimeException: io.mola.galimatias.GalimatiasParseException: empty host
+  assertEquals(
+    'https://a/',
+    new URL('https://www.example.com').setHost('a').normalize()
+  );
+  assertEquals(
+    'a',
+    new URL('https://www.example.com').setHost('a').getHost()
+  );
+}

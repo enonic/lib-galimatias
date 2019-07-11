@@ -14,6 +14,8 @@ export class URL {
 
   getFragment = () => this._javaObj.fragment() || ''
 
+  getHost = () => this._javaObj.host().toString()
+
   normalize = (input) => BEAN.normalize(this._javaObj).toString()
 
   resolve = (path) => this._javaObj.resolve(path).toString()
@@ -24,6 +26,11 @@ export class URL {
     } else {
       this._javaObj = this._javaObj.withFragment(fragment);
     }
+    return this; // Chainable
+  }
+
+  setHost(host = '') {
+    this._javaObj = this._javaObj.withHost(host);
     return this; // Chainable
   }
 
