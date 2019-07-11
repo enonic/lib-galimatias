@@ -18,26 +18,26 @@ dependencies {
 var libGalimatias = require('/lib/galimatias');
 
 // Functional
-libGalimatias.parse('https://www.example.com');
-libGalimatias.normalize('https://www.example.com');
-libGalimatias.resolve('https://www.example.com', '/path');
+libGalimatias.parse('https://www.example.com'); // returns string
+libGalimatias.normalize('https://www.example.com'); // returns string
+libGalimatias.resolve('https://www.example.com', '/path'); // returns string
 
 // Object oriented
 var URL = require('/lib/galimatias').URL;
 
 // Static
-URL.parse('https://www.example.com');
-URL.normalize('https://www.example.com');
-URL.resolve('https://www.example.com', '/path');
+URL.parse('https://www.example.com'); // returns string
+URL.normalize('https://www.example.com'); // returns string
+URL.resolve('https://www.example.com', '/path'); // returns string
 
 // Instance
-var url = new URL('https://www.example.com#fragment');
-url.normalize();
-url.resolve('/path');
-url.getFragment();
-url.setFragment('');
-url.getHost();
-url.setHost('www.iana.org');
+var url = new URL('https://www.example.com#fragment'); // returns Object
+url.normalize(); // returns string
+url.resolve('/path'); // returns string
+url.getFragment(); // returns string
+url.setFragment('').getFragment(); // setFragment is chainable
+url.getHost(); // returns string
+url.setHost('www.iana.org').getHost(); // setHost is chainable
 ```
 
 == Compatibility
