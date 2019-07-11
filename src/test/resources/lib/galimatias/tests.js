@@ -99,3 +99,29 @@ RESOLVE_TESTS.forEach(function (t, i) {
     );
   }
 }); // RESOLVE_TESTS.forEach
+
+exports.testGetFragment = function() {
+  assertEquals(
+    'fragment',
+    new URL('https://www.example.com#fragment').getFragment()
+  );
+}
+
+exports.testSetFragment = function() {
+  assertEquals(
+    'https://www.example.com/',
+    new URL('https://www.example.com#fragment').setFragment().normalize() // Testing chain too.
+  );
+  assertEquals(
+    '',
+    new URL('https://www.example.com#fragment').setFragment().getFragment() // Testing chain too.
+  );
+  assertEquals(
+    '',
+    new URL('https://www.example.com#fragment').setFragment('').getFragment() // Testing chain too.
+  );
+  assertEquals(
+    'changed',
+    new URL('https://www.example.com#fragment').setFragment('changed').getFragment() // Testing chain too.
+  );
+}

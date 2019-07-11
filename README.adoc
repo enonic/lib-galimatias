@@ -31,9 +31,11 @@ URL.normalize('https://www.example.com');
 URL.resolve('https://www.example.com', '/path');
 
 // Instance
-var url = new URL('https://www.example.com');
+var url = new URL('https://www.example.com#fragment');
 url.normalize();
 url.resolve('/path');
+url.getFragment();
+url.setFragment('');
 ```
 
 == Compatibility
@@ -61,6 +63,8 @@ url.resolve('/path');
 * Exported functional resolve
 * Added resolve method
 
+* Added getFragment method
+* Added setFragment method
 
 == Build
 

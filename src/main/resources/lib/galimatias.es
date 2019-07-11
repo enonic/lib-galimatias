@@ -12,9 +12,20 @@ export class URL {
     this._javaObj = BEAN.parse(input);
   }
 
+  getFragment = () => this._javaObj.fragment() || ''
+
   normalize = (input) => BEAN.normalize(this._javaObj).toString()
 
   resolve = (path) => this._javaObj.resolve(path).toString()
+
+  setFragment(fragment = '') {
+    if (fragment === '') {
+      this._javaObj = BEAN.parse(this.toString().replace(/#.*/, ''));
+    } else {
+      this._javaObj = this._javaObj.withFragment(fragment);
+    }
+    return this; // Chainable
+  }
 
   toString = () => this._javaObj.toString()
 
