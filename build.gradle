@@ -77,6 +77,9 @@ processResources {
     exclude 'assets/styles/**/*.sass'
     exclude 'assets/styles/**/*.scss'
     includeEmptyDirs false
+    //dependsOn += clientWebpack
+    dependsOn += serverWebpack
+    mustRunAfter serverWebpack
 }
 
 jar {
@@ -84,9 +87,6 @@ jar {
     exclude 'assets/styles/**/*.sass'
     exclude 'assets/styles/**/*.scss'
     exclude 'assets/styles/**/*.js'
-
-    //dependsOn += clientWebpack
-    dependsOn += serverWebpack
 }
 
 jar.outputs.dir "${buildDir}/resources/main"

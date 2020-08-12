@@ -2,7 +2,7 @@ const path = require('path');
 const glob = require('glob');
 const R = require('ramda');
 const TerserPlugin = require('terser-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+//const CopyWebpackPlugin = require('copy-webpack-plugin');
 const {
   setEntriesForPath,
   addRule,
@@ -39,11 +39,11 @@ const config = {
     },
   },
   plugins: [
-    new CopyWebpackPlugin([
+    /*new CopyWebpackPlugin([
         // { from: 'babel-standalone/', to: 'assets/babel-standalone/' },
       ], {
       context: path.resolve(__dirname, 'node_modules')
-    })
+    })*/
   ],
   externals: [
     /\/lib\/(enonic|xp)\/.+/
@@ -59,11 +59,14 @@ const config = {
 
 function listEntries(extensions, ignoreList) {
   const CLIENT_FILES = glob.sync(`${RESOURCES_PATH}/assets/**/*.${extensions}`);
+  //console.debug(`CLIENT_FILES:${JSON.stringify(CLIENT_FILES, null, 4)}`);
   const IGNORED_FILES = R.pipe(
     R.map(entry => path.join(RESOURCES_PATH, entry)),
     R.concat(CLIENT_FILES)
   )(ignoreList);
+  //console.debug(`IGNORED_FILES:${JSON.stringify(IGNORED_FILES, null, 4)}`);
   const SERVER_FILES = glob.sync(`${RESOURCES_PATH}/**/*.${extensions}`, { absolute: false, ignore: IGNORED_FILES });
+  //console.debug(`SERVER_FILES:${JSON.stringify(SERVER_FILES, null, 4)}`);
   return SERVER_FILES.map(entry => path.relative(RESOURCES_PATH, entry));
 }
 
@@ -119,14 +122,17 @@ function addBabelSupport(cfg) {
   const entries = listEntries('{js,es,es6}', [
     // Add additional files to the ignore list.
     // The following path will be transformed to 'src/main/resources/lib/observe/observe.es6':
-    'lib/observe/observe.es6'
+    //'lib/observe/observe.es6'
   ]);
+  //console.debug(`entries:${JSON.stringify(entries, null, 4)}`);
 
-  return R.pipe(
+  const rv = R.pipe(
     setEntriesForPath(entries),
     addRule(rule),
     prependExtensions(['.js', '.es', '.es6', '.json'])
   )(cfg);
+  //console.debug(`rv:${JSON.stringify(rv, null, 4)}`);
+  return rv;
 }
 
 // ----------------------------------------------------------------------------
@@ -134,6 +140,6 @@ function addBabelSupport(cfg) {
 // ----------------------------------------------------------------------------
 
 module.exports = R.pipe(
-  addBabelSupport,
-  addTypeScriptSupport
+  addBabelSupport//,
+  //addTypeScriptSupport
 )(config);
