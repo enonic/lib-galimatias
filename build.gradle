@@ -96,3 +96,7 @@ def nodeEnvironment() {
     def nodeEnv = environments[hasProperty( 'env' ) ? env : 'prod']
     return nodeEnv != null ? nodeEnv : 'production'
 }
+
+wrapper {
+	distributionUrl = "https://services.gradle.org/distributions/gradle-5.6.4-all.zip"
+}
