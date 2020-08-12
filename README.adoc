@@ -87,5 +87,11 @@ url.setScheme('http').getScheme(); // setScheme is chainable
 == Build
 
 ```bash
-$ enonic project deploy
+enonic project deploy
+```
+
+== Publishing
+
+```bash
+enonic project gradle -- clean build publishToMavenLocal publish --refresh-dependencies
 ```
