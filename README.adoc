@@ -63,6 +63,8 @@ url.setScheme('http').getScheme(); // setScheme is chainable
 === 1.0.0-B2
 
 * Require Enonic 7.4.1
+* Buildsystem upgrades
+  * Node 14.15.4
 
 === 1.0.0-SNAPSHOT
 
