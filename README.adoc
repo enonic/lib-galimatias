@@ -53,11 +53,16 @@ url.setScheme('http').getScheme(); // setScheme is chainable
 [width="50%",options="header"]
 |===
 | Version | Min XP version
-|1.0.0
-|7.0.x
+|===
+|1.0.0-B2 |7.4.1
+|1.0.0-B1 |7.0.x
 |===
 
 == Changelog
+
+=== 1.0.0-B2
+
+* Require Enonic 7.4.1
 
 === 1.0.0-SNAPSHOT
 
