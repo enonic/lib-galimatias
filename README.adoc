@@ -60,6 +60,10 @@ url.setScheme('http').getScheme(); // setScheme is chainable
 
 == Changelog
 
+=== 1.0.0-B3-SNAPSHOT
+
+* Upgrade node modules
+
 === 1.0.0-B2
 
 * Require Enonic 7.4.1
