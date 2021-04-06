@@ -67,7 +67,8 @@ url.setScheme('http').getScheme(); // setScheme is chainable
 * Buildsystem upgrades
   * Node 14.16.0
   * Removed unused node modules (styling related)
-  * Webpack 5.24.2
+  * Babel 7.13.14
+  * Webpack 5.30.0
   * All node modules up to date
 
 === 1.0.0-B2
