@@ -65,7 +65,7 @@ url.setScheme('http').getScheme(); // setScheme is chainable
 
 * Require Enonic 7.5.0
 * Buildsystem upgrades
-  * Node 14.16.0
+  * Node 14.17.0
   * Removed unused node modules (styling related)
   * Babel 7.13.14
   * Webpack 5.30.0
