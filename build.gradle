@@ -33,7 +33,7 @@ dependencies {
 repositories {
     xp.enonicRepo()
     mavenLocal()
-    jcenter()
+    mavenCentral()
 }
 
 node {
