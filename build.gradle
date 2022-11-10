@@ -38,7 +38,7 @@ repositories {
 
 node {
     download = true
-    version '16.18.0'
+    version = '16.18.0'
 }
 
 task cleanNode( type: org.gradle.api.tasks.Delete ) {
