@@ -12,7 +12,7 @@ dependencies {
     compile "com.enonic.xp:lib-event:${xpVersion}"
     compile "com.enonic.xp:lib-content:${xpVersion}"
     compile "com.enonic.xp:lib-portal:${xpVersion}"
-    compile "com.enonic.lib:lib-thymeleaf:2.0.0"
+    compile "com.enonic.lib:lib-thymeleaf:2.0.2"
     //compile "com.enonic.xp:lib-auth:${xpVersion}"
     //compile "com.enonic.xp:lib-context:${xpVersion}"
     //compile "com.enonic.xp:lib-i18n:${xpVersion}"
