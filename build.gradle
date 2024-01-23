@@ -9,9 +9,9 @@ plugins {
 
 dependencies {
     //compile "com.enonic.xp:script-api:${xpVersion}"
-    compile "com.enonic.xp:lib-event:${xpVersion}"
-    compile "com.enonic.xp:lib-content:${xpVersion}"
-    compile "com.enonic.xp:lib-portal:${xpVersion}"
+    implementation "com.enonic.xp:lib-event:${xpVersion}"
+    implementation "com.enonic.xp:lib-content:${xpVersion}"
+    implementation "com.enonic.xp:lib-portal:${xpVersion}"
     //compile "com.enonic.xp:lib-auth:${xpVersion}"
     //compile "com.enonic.xp:lib-context:${xpVersion}"
     //compile "com.enonic.xp:lib-i18n:${xpVersion}"
@@ -22,9 +22,9 @@ dependencies {
     //compile "com.enonic.lib:lib-mustache:2.0.0"
     //compile "com.enonic.lib:lib-util:2.0.0"
 
-    compile "io.mola.galimatias:galimatias:0.2.1"
+    implementation "io.mola.galimatias:galimatias:0.2.1"
 
-    testCompile "com.enonic.xp:testing:${xpVersion}"
+    testImplementation "com.enonic.xp:testing:${xpVersion}"
     //testCompile 'org.mockito:mockito-core:2.+'
     //testCompile 'junit:junit:4.12'
 }
@@ -81,21 +81,8 @@ processResources {
     mustRunAfter serverWebpack
 }
 
-jar {
-    exclude 'assets/styles/**/*.less'
-    exclude 'assets/styles/**/*.sass'
-    exclude 'assets/styles/**/*.scss'
-    exclude 'assets/styles/**/*.js'
-}
-
-jar.outputs.dir "${buildDir}/resources/main"
-
 def nodeEnvironment() {
     def environments = [ prod : 'production', dev: 'development' ]
     def nodeEnv = environments[hasProperty( 'env' ) ? env : 'prod']
     return nodeEnv != null ? nodeEnv : 'production'
-}
-
-wrapper {
-	distributionUrl = "https://services.gradle.org/distributions/gradle-5.6.4-all.zip"
 }
