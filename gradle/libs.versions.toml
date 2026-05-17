@@ -1,0 +1,5 @@
+[versions]
+galimatias = "0.2.1"
+
+[libraries]
+galimatias = { module = "io.mola.galimatias:galimatias", version.ref = "galimatias" }
