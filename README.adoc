@@ -1,5 +1,7 @@
 = Galimatias Library
 
+WARNING: This library is deprecated and should not be used in new projects because the underlying Galimatias Java library is no longer maintained.
+
 == build.gradle
 
 ```groovy
